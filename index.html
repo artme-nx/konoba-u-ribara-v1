@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konoba U Ribara — Bibinje · ulov dana s gradela</title>
+<meta name="description" content="Konoba U Ribara u Bibinjama — autentična ribarska konoba uz zadarsku rivu. Svježa riba i školjke ravno iz mora, riba s gradela, buzara, brodet i hobotnica ispod peke.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --parchment:#F2ECDE;
+  --parchment-2:#EAE2CE;
+  --sea:#2E5A6B;
+  --sea-deep:#1F404D;
+  --rope:#B6884F;
+  --rope-soft:#C9A876;
+  --olive:#6B6B47;
+  --charcoal:#2A2620;
+  --ink:#1C1A16;
+  --line:rgba(42,38,32,.16);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  background:var(--parchment);
+  color:var(--charcoal);
+  font-family:'DM Sans',sans-serif;
+  font-weight:300;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* subtle grain */
+body::before{
+  content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.04;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+h1,h2,h3,.serif{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.08;letter-spacing:.005em}
+.italic{font-style:italic;font-weight:400}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:'DM Sans',sans-serif;font-weight:500;font-size:.72rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rope)}
+.fade{opacity:0;transform:translateY(24px)}
+
+/* HEADER */
+header{position:fixed;top:0;left:0;right:0;z-index:1000;transition:background .5s,box-shadow .5s,padding .5s;padding:22px 0}
+header.scrolled{background:rgba(242,236,222,.92);backdrop-filter:blur(10px);box-shadow:0 1px 0 var(--line);padding:14px 0}
+.nav{display:flex;align-items:center;justify-content:space-between}
+.brand{font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;letter-spacing:.02em;color:var(--parchment);transition:color .5s}
+header.scrolled .brand{color:var(--sea-deep)}
+.brand small{display:block;font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;font-weight:500;opacity:.85;margin-top:-2px}
+.nav-links{display:flex;gap:34px;align-items:center}
+.nav-links a{font-size:.82rem;letter-spacing:.06em;color:var(--parchment);transition:color .5s,opacity .3s;opacity:.9}
+header.scrolled .nav-links a{color:var(--charcoal)}
+.nav-links a:hover{opacity:1;color:var(--rope-soft)}
+header.scrolled .nav-links a:hover{color:var(--rope)}
+.cta{border:1px solid var(--rope-soft);color:var(--parchment)!important;padding:9px 20px;border-radius:2px;font-size:.74rem!important;letter-spacing:.14em!important;text-transform:uppercase;transition:.35s}
+header.scrolled .cta{border-color:var(--sea);color:var(--sea-deep)!important}
+.cta:hover{background:var(--rope);border-color:var(--rope);color:var(--parchment)!important;opacity:1!important}
+header.scrolled .cta:hover{background:var(--sea);border-color:var(--sea);color:var(--parchment)!important}
+.menu-btn{display:none;background:none;border:none;color:var(--parchment);font-size:1.5rem;cursor:pointer}
+header.scrolled .menu-btn{color:var(--charcoal)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:120%;object-fit:cover;will-change:transform}
+.hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(31,64,77,.42) 0%,rgba(28,26,22,.18) 40%,rgba(28,26,22,.72) 100%)}
+.hero-inner{position:relative;z-index:2;padding-bottom:9vh;color:var(--parchment)}
+.hero .eyebrow{color:var(--rope-soft);margin-bottom:22px}
+.hero h1{font-size:clamp(3rem,8.5vw,7rem);color:var(--parchment);text-shadow:0 2px 40px rgba(0,0,0,.3)}
+.hero h1 .italic{color:var(--rope-soft)}
+.hero p.lede{max-width:520px;margin-top:24px;font-size:1.06rem;font-weight:300;opacity:.94;line-height:1.75}
+.hero-meta{display:flex;gap:28px;margin-top:34px;flex-wrap:wrap;align-items:center}
+.hero-meta span{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85;display:flex;align-items:center;gap:9px}
+.hero-meta span::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--rope-soft)}
+.scroll-hint{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:3;color:var(--parchment);font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;writing-mode:vertical-rl}
+
+/* SECTION basics */
+section{position:relative}
+.pad{padding:120px 0}
+.pad-sm{padding:84px 0}
+.section-head{max-width:680px;margin-bottom:60px}
+.section-head h2{font-size:clamp(2.2rem,5vw,3.6rem);margin-top:16px;color:var(--ink)}
+.section-head p{margin-top:20px;font-size:1.04rem;color:#544e44}
+
+/* dividers */
+.divider{width:100%;color:var(--rope);opacity:.55}
+.divider svg{display:block;width:100%;height:34px}
+
+/* MANIFEST */
+.manifest{background:var(--sea-deep);color:var(--parchment);text-align:center}
+.manifest .wrap{max-width:840px}
+.manifest .eyebrow{color:var(--rope-soft)}
+.manifest p{font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.6vw,2.5rem);line-height:1.4;font-weight:400;margin-top:24px}
+.manifest p .italic{color:var(--rope-soft)}
+.manifest .sign{margin-top:34px;font-family:'DM Sans';font-size:.76rem;letter-spacing:.24em;text-transform:uppercase;opacity:.7}
+
+/* MENU */
+.menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 72px}
+.dish{padding:26px 0;border-bottom:1px solid var(--line)}
+.dish-top{display:flex;justify-content:space-between;align-items:baseline;gap:18px}
+.dish h3{font-size:1.7rem;color:var(--ink)}
+.dish .tag{font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rope);white-space:nowrap;font-family:'DM Sans';font-weight:500}
+.dish p{margin-top:8px;font-size:.96rem;color:#5a5346;max-width:46ch}
+.dish .micro{display:inline-block;margin-top:12px;font-style:italic;font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--sea);opacity:0;transform:translateY(6px);transition:.4s}
+.dish:hover .micro{opacity:1;transform:translateY(0)}
+.menu-note{margin-top:46px;font-style:italic;font-family:'Cormorant Garamond';font-size:1.25rem;color:var(--olive);text-align:center}
+
+/* STORY */
+.story{background:var(--parchment-2)}
+.story-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:70px;align-items:center}
+.story-text h2{font-size:clamp(2rem,4.6vw,3.2rem);color:var(--ink);margin-bottom:24px}
+.story-text p{margin-bottom:18px;color:#534d42;font-size:1.02rem}
+.story-text p .italic{color:var(--sea)}
+.story-imgs{position:relative}
+.story-imgs img{border-radius:2px;box-shadow:0 24px 60px -28px rgba(31,64,77,.5)}
+.story-imgs .s2{position:absolute;width:48%;bottom:-34px;right:-24px;border:6px solid var(--parchment-2)}
+
+/* GALLERY */
+.gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:200px;gap:14px}
+.gallery-grid figure{overflow:hidden;border-radius:2px;position:relative}
+.gallery-grid img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.gallery-grid figure:hover img{transform:scale(1.06)}
+.g1{grid-column:span 7;grid-row:span 2}
+.g2{grid-column:span 5}
+.g3{grid-column:span 5}
+.g4{grid-column:span 4;grid-row:span 2}
+.g5{grid-column:span 4}
+.g6{grid-column:span 4}
+.gcap{position:absolute;left:14px;bottom:12px;color:var(--parchment);font-family:'Cormorant Garamond';font-style:italic;font-size:1.1rem;text-shadow:0 2px 12px rgba(0,0,0,.5);opacity:0;transition:.4s}
+.gallery-grid figure:hover .gcap{opacity:1}
+
+/* VISIT */
+.visit{background:var(--sea-deep);color:var(--parchment)}
+.visit-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:stretch}
+.visit .eyebrow{color:var(--rope-soft)}
+.visit h2{font-size:clamp(2rem,4.4vw,3rem);margin:14px 0 26px;color:var(--parchment)}
+.info-row{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid rgba(242,236,222,.16)}
+.info-row .k{min-width:130px;font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--rope-soft);padding-top:4px}
+.info-row .v{font-size:1.02rem;color:#e6dfcf}
+.info-row .v strong{font-weight:400}
+.hours{font-size:.98rem;color:#e6dfcf;line-height:1.9}
+.map-frame{border-radius:2px;overflow:hidden;min-height:340px;box-shadow:0 24px 60px -30px rgba(0,0,0,.6)}
+.map-frame iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.2) sepia(.1)}
+
+/* ENQUIRY / FORM */
+.enquiry{background:var(--parchment)}
+.enquiry-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px;align-items:start}
+.enquiry h2{font-size:clamp(2rem,4.6vw,3.2rem);color:var(--ink);margin-bottom:20px}
+.enquiry .lead{color:#534d42;font-size:1.04rem;margin-bottom:18px}
+.tel-note{margin-top:22px;font-size:.85rem;color:var(--olive);font-style:italic;font-family:'Cormorant Garamond';font-size:1.05rem}
+form{display:grid;gap:18px}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.field label{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--rope);margin-bottom:7px}
+.field input,.field textarea,.field select{
+  width:100%;background:transparent;border:none;border-bottom:1px solid var(--line);
+  padding:10px 2px;font-family:'DM Sans';font-size:.98rem;color:var(--charcoal);font-weight:300;transition:border-color .3s;
+}
+.field input:focus,.field textarea:focus,.field select:focus{outline:none;border-color:var(--sea)}
+.field textarea{resize:vertical;min-height:90px}
+button.submit{justify-self:start;margin-top:8px;background:var(--sea);color:var(--parchment);border:none;padding:15px 38px;font-family:'DM Sans';font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:2px;transition:.35s}
+button.submit:hover{background:var(--rope)}
+.form-msg{font-size:.9rem;color:var(--sea);font-style:italic;font-family:'Cormorant Garamond';font-size:1.1rem;min-height:1.2em}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--parchment);padding:70px 0 36px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:48px;margin-bottom:50px}
+.foot-brand .serif{font-size:1.8rem;font-weight:600}
+.foot-brand p{margin-top:14px;font-size:.94rem;color:#a9a194;max-width:34ch}
+.foot-col h4{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--rope-soft);margin-bottom:16px}
+.foot-col a,.foot-col p{display:block;font-size:.94rem;color:#bcb4a6;margin-bottom:9px}
+.foot-col a:hover{color:var(--rope-soft)}
+.foot-bottom{border-top:1px solid rgba(242,236,222,.12);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.78rem;color:#8a8276}
+
+@media(max-width:900px){
+  .menu-grid,.story-grid,.visit-grid,.enquiry-grid{grid-template-columns:1fr;gap:44px}
+  .story-imgs .s2{position:relative;width:60%;bottom:0;right:0;margin-top:16px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .gallery-grid{grid-auto-rows:160px}
+  .g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 6;grid-row:span 1}
+  .nav-links{display:none}
+  .menu-btn{display:block}
+}
+@media(max-width:560px){
+  .f-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .hero-meta{gap:16px}
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(prefers-reduced-motion:reduce){
+  .fade{opacity:1!important;transform:none!important}
+  .hero-bg img{height:100%!important}
+  *{scroll-behavior:auto!important}
+}
+</style>
+</head>
+<body>
+
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand">Konoba U Ribara<small>Bibinje · od mora do gradela</small></a>
+    <nav class="nav-links">
+      <a href="#kuhinja">Kuhinja</a>
+      <a href="#prica">Naša priča</a>
+      <a href="#galerija">Galerija</a>
+      <a href="#posjet">Posjet</a>
+      <a href="#upit" class="cta">Upit / Rezervacija</a>
+    </nav>
+    <button class="menu-btn" aria-label="Izbornik" onclick="document.querySelector('.nav-links').classList.toggle('open')">≡</button>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1505228395891-9a51e7e86bf6?auto=format&fit=crop&w=2000&q=80" alt="Zlatni sat u ribarskoj luci, barke i mreže" fetchpriority="high">
+  </div>
+  <div class="wrap hero-inner">
+    <p class="eyebrow">Bibinje · ribarska konoba</p>
+    <h1>Ono što je<br><span class="italic">jutros ulovljeno</span><br>navečer je na gradelama.</h1>
+    <p class="lede">U Ribara — za ribarskim stolom, ondje gdje barka pristane, mreže se suše na suncu, a ulov dana ide ravno s mora na žar. Bez pretvaranja. Samo more, sol i dim.</p>
+    <div class="hero-meta">
+      <span>Svježa riba i školjke</span>
+      <span>197 recenzija</span>
+      <span>Uz zadarsku rivu</span>
+    </div>
+  </div>
+  <div class="scroll-hint">zaroni</div>
+</section>
+
+<div class="divider"><svg viewBox="0 0 1200 34" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 17 Q 50 2 100 17 T 200 17 T 300 17 T 400 17 T 500 17 T 600 17 T 700 17 T 800 17 T 900 17 T 1000 17 T 1100 17 T 1200 17"/></svg></div>
+
+<!-- MANIFEST -->
+<section class="manifest pad">
+  <div class="wrap fade">
+    <p class="eyebrow">Naš manifest</p>
+    <p>Ne biramo ribu po cjeniku, nego po tome <span class="italic">što je more dalo tog jutra.</span> Kuhamo onako kako su kuhali naši — malo soli, kap ulja, vatra i strpljenje. Sve ostalo radi <span class="italic">Jadran.</span></p>
+    <div class="sign">— Posada konobe U Ribara</div>
+  </div>
+</section>
+
+<div class="divider"><svg viewBox="0 0 1200 34" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 17 Q 50 2 100 17 T 200 17 T 300 17 T 400 17 T 500 17 T 600 17 T 700 17 T 800 17 T 900 17 T 1000 17 T 1100 17 T 1200 17"/></svg></div>
+
+<!-- MENU -->
+<section class="pad" id="kuhinja">
+  <div class="wrap">
+    <div class="section-head fade">
+      <p class="eyebrow">S mora na stol</p>
+      <h2>Ulov dana i klasici s gradela</h2>
+      <p>Jelovnik piše more. Ono što slijedi naša su stalna jela — količina i vrsta ribe ovise o dnevnom ulovu. Pitajte za ono što je barka donijela jutros.</p>
+    </div>
+    <div class="menu-grid">
+      <div class="dish fade">
+        <div class="dish-top"><h3>Ulov dana</h3><span class="tag">danas iz mora</span></div>
+        <p>Cijela bijela riba po izboru — orada, brancin, kovač ili škarpina — na soli i lovorovom listu, polivena maslinovim uljem s otoka.</p>
+        <span class="micro">ulov jutros</span>
+      </div>
+      <div class="dish fade">
+        <div class="dish-top"><h3>Riba s gradela</h3><span class="tag">na žaru</span></div>
+        <p>Plava i bijela riba na otvorenoj vatri, s blitvom i krumpirom na lešo. Koža hrskava, meso sočno — onako kako gradele znaju.</p>
+        <span class="micro">sol i dim</span>
+      </div>
+      <div class="dish fade">
+        <div class="dish-top"><h3>Buzara</h3><span class="tag">školjke</span></div>
+        <p>Dagnje i kapice u bijelom vinu, češnjaku, peršinu i prezlama. Uz nju komad domaćega kruha — za umakanje do dna.</p>
+        <span class="micro">umoči kruh</span>
+      </div>
+      <div class="dish fade">
+        <div class="dish-top"><h3>Brodet</h3><span class="tag">ribarski lonac</span></div>
+        <p>Stari ribarski gulaš od više vrsta ribe, kuhan polako u rajčici i vinu, poslužen s palentom. Jelo koje miriše na luku.</p>
+        <span class="micro">kuha se polako</span>
+      </div>
+      <div class="dish fade">
+        <div class="dish-top"><h3>Hobotnica ispod peke</h3><span class="tag">ispod peke</span></div>
+        <p>Hobotnica s krumpirom, kaparima i začinskim biljem, pečena pod gvozdenom pekom uz žeravicu. Mekana, dimljena, dalmatinska.</p>
+        <span class="micro">strpljenje vatre</span>
+      </div>
+      <div class="dish fade">
+        <div class="dish-top"><h3>Domaće predjelo</h3><span class="tag">marenda</span></div>
+        <p>Slane srdele, hobotnica na salatu, sir s Paga i domaći pršut — uz čašu malvazije, onako kako se počinje uz more.</p>
+        <span class="micro">prvo more, pa sve</span>
+      </div>
+    </div>
+    <p class="menu-note fade">Cijene i dnevna ponuda dogovaraju se uz stol — jer ovisе o tome što je barka donijela.</p>
+  </div>
+</section>
+
+<div class="divider"><svg viewBox="0 0 1200 34" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 25 L60 9 L120 25 L180 9 L240 25 L300 9 L360 25 L420 9 L480 25 L540 9 L600 25 L660 9 L720 25 L780 9 L840 25 L900 9 L960 25 L1020 9 L1080 25 L1140 9 L1200 25" stroke-dasharray="0"/><path d="M0 9 L60 25 L120 9 L180 25 L240 9 L300 25 L360 9 L420 25 L480 9 L540 25 L600 9 L660 25 L720 9 L780 25 L840 9 L900 25 L960 9 L1020 25 L1080 9 L1140 25 L1200 9"/></svg></div>
+
+<!-- STORY -->
+<section class="story pad" id="prica">
+  <div class="wrap story-grid">
+    <div class="story-text fade">
+      <p class="eyebrow">Naša priča</p>
+      <h2>Iz Bibinja, gdje barke još uvijek hrane stol</h2>
+      <p>Bibinje je malo ribarsko mjesto južno od Zadra — luka, barke, mreže razapete na suncu i ljudi koji još uvijek žive od mora. Tu, na nekoliko koraka od rive, stoji <span class="italic">U Ribara.</span></p>
+      <p>Ime nije slučajno. Ribar koji ujutro izvuče mreže, navečer sjedne za isti stol za koji poslužujemo. Ono što vidite na tanjuru jutros je još plivalo. Nema posrednika, nema skladišta — samo ruka koja je lovila i vatra koja peče.</p>
+      <p>Kuhamo bez buke i bez pretjerivanja. Recepti su <span class="italic">naslijeđeni</span>, a sastojci jednostavni jer takvi i trebaju biti kad je riba ovako svježa. Sjednite, naručite ono što je danas iz mora i pustite da vam Jadran ispriča ostalo.</p>
+    </div>
+    <div class="story-imgs fade">
+      <img class="s1" src="https://images.unsplash.com/photo-1534043464124-3be32fe000c9?auto=format&fit=crop&w=1100&q=80" alt="Ribarske mreže i barke u luci">
+      <img class="s2" src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=700&q=80" alt="Svježa riba na ledu">
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="pad" id="galerija">
+  <div class="wrap">
+    <div class="section-head fade">
+      <p class="eyebrow">Trenuci</p>
+      <h2>More, vatra i stol</h2>
+    </div>
+    <div class="gallery-grid">
+      <figure class="g1 fade"><img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1300&q=80" alt="Riba na gradelama"><figcaption class="gcap">žar i dim</figcaption></figure>
+      <figure class="g2 fade"><img src="https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=900&q=80" alt="Svježe školjke na ledu"><figcaption class="gcap">jutarnji ulov</figcaption></figure>
+      <figure class="g3 fade"><img src="https://images.unsplash.com/photo-1498654896293-37aacf113fd9?auto=format&fit=crop&w=900&q=80" alt="Riba s gradela na tanjuru"><figcaption class="gcap">s mora na stol</figcaption></figure>
+      <figure class="g4 fade"><img src="https://images.unsplash.com/photo-1520342868574-5fa3804e551c?auto=format&fit=crop&w=900&q=80" alt="Barke u zoru"><figcaption class="gcap">prije izlaska</figcaption></figure>
+      <figure class="g5 fade"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=80" alt="Stol uz more"><figcaption class="gcap">uz rivu</figcaption></figure>
+      <figure class="g6 fade"><img src="https://images.unsplash.com/photo-1543353071-873f17a7a088?auto=format&fit=crop&w=900&q=80" alt="Maslinovo ulje i kruh"><figcaption class="gcap">sol i ulje</figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<div class="divider"><svg viewBox="0 0 1200 34" preserveAspectRatio="none" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M0 17 Q 50 2 100 17 T 200 17 T 300 17 T 400 17 T 500 17 T 600 17 T 700 17 T 800 17 T 900 17 T 1000 17 T 1100 17 T 1200 17"/></svg></div>
+
+<!-- VISIT -->
+<section class="visit pad" id="posjet">
+  <div class="wrap visit-grid">
+    <div class="fade">
+      <p class="eyebrow">Posjetite nas</p>
+      <h2>Bibinje, uz more</h2>
+      <div class="info-row"><div class="k">Lokacija</div><div class="v"><strong>Bibinje</strong>, ribarsko mjesto južno od Zadra, uz rivu i luku.</div></div>
+      <div class="info-row"><div class="k">Radno vrijeme</div><div class="v hours">
+        Ponedjeljak – Petak · 12:00 – 23:00<br>
+        Subota – Nedjelja · 11:00 – 24:00<br>
+        <span style="opacity:.7">Zimi i izvan sezone moguće su izmjene — javite se upitom.</span>
+      </div></div>
+      <div class="info-row"><div class="k">Rezervacije</div><div class="v">Preporučujemo najavu, osobito vikendom i u sezoni. Pošaljite <a href="#upit" style="color:var(--rope-soft);text-decoration:underline">upit</a> i javit ćemo vam se.</div></div>
+      <div class="info-row"><div class="k">Telefon</div><div class="v" style="opacity:.8;font-style:italic;font-family:'Cormorant Garamond';font-size:1.1rem">Broj telefona uskoro — do tada nas najlakše dobijete putem obrasca za upit.</div></div>
+    </div>
+    <div class="map-frame fade">
+      <iframe src="https://maps.google.com/maps?q=Konoba+U+Ribara+Bibinje&output=embed" loading="lazy" title="Karta — Konoba U Ribara, Bibinje"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ENQUIRY -->
+<section class="enquiry pad" id="upit">
+  <div class="wrap enquiry-grid">
+    <div class="fade">
+      <p class="eyebrow">Upit / Rezervacija</p>
+      <h2>Rezervirajte stol uz more</h2>
+      <p class="lead">Pošaljite nam datum, sat i broj gostiju, a mi ćemo potvrditi vaš stol i, ako želite, predložiti što je toga dana najsvježije iz mora.</p>
+      <p class="lead">Za veće skupine, proslave ili ribarsku marendu — napišite nam i to, rado ćemo pripremiti poseban meni od ulova dana.</p>
+      <p class="tel-note">Telefonski broj objavljujemo uskoro — zasad je obrazac najbrži put do nas.</p>
+    </div>
+    <form class="fade" onsubmit="return ribaForm(event)">
+      <div class="f-row">
+        <div class="field"><label for="ime">Ime i prezime</label><input id="ime" name="ime" required></div>
+        <div class="field"><label for="email">E-mail</label><input id="email" name="email" type="email" required></div>
+      </div>
+      <div class="f-row">
+        <div class="field"><label for="datum">Datum</label><input id="datum" name="datum" type="date"></div>
+        <div class="field"><label for="osobe">Broj gostiju</label><input id="osobe" name="osobe" type="number" min="1" value="2"></div>
+      </div>
+      <div class="field"><label for="poruka">Poruka</label><textarea id="poruka" name="poruka" placeholder="Sat dolaska, posebne želje, ulov dana…"></textarea></div>
+      <button class="submit" type="submit">Pošalji upit</button>
+      <p class="form-msg" id="formMsg"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="serif">Konoba U Ribara</div>
+        <p>Autentična ribarska konoba u Bibinjama. Ulov dana s gradela, buzara i brodet — onako kako more nalaže.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Sadržaj</h4>
+        <a href="#kuhinja">Kuhinja</a>
+        <a href="#prica">Naša priča</a>
+        <a href="#galerija">Galerija</a>
+        <a href="#posjet">Posjet</a>
+      </div>
+      <div class="foot-col">
+        <h4>Kontakt</h4>
+        <p>Bibinje, uz zadarsku rivu</p>
+        <a href="#upit">Pošaljite upit / rezervaciju</a>
+        <p style="font-style:italic;opacity:.75">Telefon objavljujemo uskoro</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Konoba U Ribara · Bibinje</span>
+      <span>Od mora do gradela · Jadran</span>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script>
+const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Header scroll state
+const header = document.getElementById('header');
+const onScroll = () => header.classList.toggle('scrolled', window.scrollY > 40);
+onScroll();
+
+if(!reduce){
+  // Lenis — snappy
+  const lenis = new Lenis({lerp:0.2, wheelMultiplier:1, smoothWheel:true, syncTouch:false});
+  function raf(t){ lenis.raf(t); requestAnimationFrame(raf); }
+  requestAnimationFrame(raf);
+  lenis.on('scroll', () => { ScrollTrigger.update(); onScroll(); });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  // gentle fades
+  gsap.utils.toArray('.fade').forEach(el=>{
+    gsap.to(el,{opacity:1,y:0,duration:1,ease:'power2.out',
+      scrollTrigger:{trigger:el,start:'top 86%'}});
+  });
+
+  // hero parallax (light scrub, no pin)
+  gsap.to('.hero-bg img',{yPercent:14,ease:'none',
+    scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:0.6}});
+
+  // anchor smooth scroll via Lenis
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();lenis.scrollTo(t,{offset:-70});document.querySelector('.nav-links').classList.remove('open');}
+    });
+  });
+}else{
+  window.addEventListener('scroll',onScroll,{passive:true});
+}
+
+// open mobile nav style
+const style=document.createElement('style');
+style.textContent='.nav-links.open{display:flex;position:absolute;top:100%;right:28px;flex-direction:column;background:var(--parchment);padding:18px 26px;border:1px solid var(--line);gap:16px;border-radius:2px;box-shadow:0 18px 40px -20px rgba(0,0,0,.3)}.nav-links.open a{color:var(--charcoal)}';
+document.head.appendChild(style);
+
+// Enquiry form (front-end only, no backend)
+function ribaForm(e){
+  e.preventDefault();
+  document.getElementById('formMsg').textContent='Hvala! Vaš upit je zabilježen — javit ćemo vam se na e-mail uskoro.';
+  e.target.reset();
+  return false;
+}
+</script>
+</body>
+</html>
